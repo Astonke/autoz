@@ -1,17 +1,21 @@
 #autoz usage
+
 pip install autoz
 
 #NB -> the functions only take in xpath
 
 #script
+
 from autoz.kit import *
 from time import sleep
 
 #init drivers, browser bin, background features
 #the script will run in background unless background is set to False
+
 init()
 
-#go to a page
+#Go to a page
+
 go('https://odibets.com/live/')
 
 
@@ -24,7 +28,7 @@ find_click('//*[@id="modal"]/div/div[1]/input')
 # Enter code
 clear_input('//*[@id="modal"]/div/div[1]/input', '1127')
 
-# Teams
+# Teams data
 home = extract_text('/html/body/div[1]/div/div[8]/div/div[2]/div/div[2]/div/div[2]/div/div[1]/a/div[1]')
 away = extract_text(d, '/html/body/div[1]/div/div[8]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div/div[1]/a/div[2]')
 
@@ -34,6 +38,7 @@ away_score = extract_text('/html/body/div[1]/div/div[8]/div/div[2]/div/div[2]/di
 
 print(f'{home} - {away}')
 print(f'scores: {home_score} - {away_score}')
+
 
 #excute bash commands inside python
 execute_bash(f"echo '{home} - {away} ,scores: {home_score}:{away_score}' > ball.txt")
